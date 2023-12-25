@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
      private void initView(){
          button = findViewById(R.id.btn_add);
-        recyclerView = findViewById(R.id.rv_rr);
+        recyclerView = findViewById(R.id.Data_et);
         adapter = new NoteAdapter(this);
         recyclerView.setAdapter(adapter);
 
