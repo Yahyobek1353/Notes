@@ -55,9 +55,11 @@ public class Seacon extends AppCompatActivity {
                 Date d = Calendar.getInstance().getTime();
                 SimpleDateFormat df = new SimpleDateFormat("dd-mm-yyyy", Locale.getDefault());
                 String noteDate = df + " / " + d;
-                Intent i = new Intent(Seacon.this , MainActivity.class);
                 Note note = new Note(notetitle , noteDesc , noteDate,0);
-                i.putExtra("note");
+                Intent i = new Intent(Seacon.this , MainActivity.class);
+                i.putExtra("note",note);
+                startActivity(i);
+                finish();
             }
         });
     }

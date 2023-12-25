@@ -9,38 +9,41 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    private Button button;
-    private RecyclerView recyclerView;
+    private Button btnAdd;
     private NoteAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initView();
+        initViews();
+        btnListener();
+        getNotes();
     }
-     private void initView(){
-         button = findViewById(R.id.btn_add);
-        recyclerView = findViewById(R.id.Data_et);
+
+    private void initViews() {
+        RecyclerView recyclerView = findViewById(R.id.rv_list);
         adapter = new NoteAdapter(this);
         recyclerView.setAdapter(adapter);
-
+        btnAdd = findViewById(R.id.btn_add);
     }
-    private void getNotes(){
+
+    private void getNotes() {
         if (getIntent() != null) {
-            Note n;
-            n = (Note) getIntent().putExtra("note");
-            adapter.addNote(n);
+            Note note = (Note) getIntent().getSerializableExtra("note");
+            if (note != null) {
+                adapter.addNote(note);
+            }
         }
     }
 
-    private void btnListener(){
-       button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               Intent intent = new Intent(MainActivity.this, Seacon.class);
-               startActivity(intent);
-           }
-       });
+    private void btnListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Seacon.class);
+                startActivity(intent);
+            }
+        });
     }
-
 }
+

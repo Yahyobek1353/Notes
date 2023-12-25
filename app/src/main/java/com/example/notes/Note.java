@@ -6,10 +6,10 @@ import android.os.Parcelable;
 import androidx.annotation.NonNull;
 
 public class Note implements Parcelable {
-    private String title;
-    private String deskription;
-    private String data;
-    private int img;
+    private String title = " ";
+    private String deskription = " ";
+    private String data = " ";
+    private int img = 0;
 
     public Note(String title, String deskription, String data, int img) {
         this.title = title;

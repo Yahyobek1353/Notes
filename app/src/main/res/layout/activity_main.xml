@@ -36,14 +36,34 @@
         android:elevation="8dp"
         android:layout_marginTop="10dp">
         
-        <androidx.appcompat.widget.SearchView
+        <com.google.android.material.search.SearchView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:queryHint="Search..."
-            app:iconifiedByDefault="false"
             android:layout_marginVertical="5dp"
             />
     </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Nothing found :("
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="28sp"
+        android:elevation="2dp"
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/cart"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:listitem="@layout/itim_rv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        android:id="@+id/rv_list"/>
+
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_sort"
@@ -51,9 +71,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:backgroundTint="#FFE5BE"
-        android:contentDescription="@string/app_name"
         android:src="@drawable/sort_16px"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/cart" />
+        app:layout_constraintTop_toTopOf="@id/cart"
+        android:contentDescription="TODO" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
