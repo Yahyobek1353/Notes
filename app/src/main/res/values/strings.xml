@@ -3,4 +3,6 @@
     <string name="description">Description</string>
     <string name="title">Title</string>
     <string name="todo">TODO</string>
+    <string name="sdda">sdda</string>
+    <string name="note">note</string>
 </resources>
